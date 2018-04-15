@@ -1,3 +1,40 @@
+# 0.18.0 - 2017-10-23
+
+* Make clear this plugin is open source (PR #144)
+* Support pages with multiple nodes (PR #150)
+* Add option to display the array size, disabled by default (`showArraySize` PR #122)
+* Support JSONP with spaces around (PR #157)
+* Allow force highlight for oversized JSON (PR #168)
+* Add option to wrap links with a link tag [<a/>] (PR #173)
+* Bugfix: preserve spaces in plain strings (PR #175)
+* Bugfix: Remove unnecessary limitations from package.json (issue #171)
+* Bugfix: fix float point numbers (issues #167 #111)
+
+# 0.17.0 - 2017-01-16
+
+* Bugfix: check if all nodes are text nodes before the normalization when facing multiple nodes (issue #136)
+* Add key map `shift-enter` to show the previous search result (PR #135 thanks to @benvan)
+
+# 0.16.2 - 2017-01-14
+
+* Bugfix: checkIfJson fails when chrome splits text nodes (PR #133 thanks to @benvan)
+* Bug fix: quotes incorrectly parsed by wrapNumbers resulting in broken json (PR #134 thanks to @benvan)
+
+# 0.16.1 - 2016-12-04
+
+* Bugfix: Empty `<pre>` prepended to body when markup contained one text node with any whitespace character inside (issue #123)
+
+# 0.16.0 - 2016-12-01
+
+* Make the extension work if the content-type is text/html (PR #117)
+* Included panda-syntax theme (issue #112)
+* Updated CodeMirror (5.21.0)
+* Always show fold/unfold button (issue #107)
+
+# 0.15.0 - 2016-08-13
+
+* Bugfix: fixed issue with wrapNumbers failing when string ends with backslash (PR #94)
+
 # 0.14.1 - 2016-06-17
 
 * Improved JSON check

@@ -16,7 +16,7 @@ Notes:
 Features:
 
 * Syntax highlighting
-* 26 built-in themes
+* 27 built-in themes
 * Collapsible nodes
 * Clickable URLs (optional)
 * URL does not matter (the content is analysed to determine if its a JSON or not)
@@ -42,15 +42,16 @@ Features:
 
 [![https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh](https://raw.githubusercontent.com/tulios/json-viewer/master/tryitnow.png)](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
 
-### or compile and load by yourself
+### Or compile and load by yourself
 
-  1. it depends on node (version in `package.json` engines)
-  2. `npm install`
-  3. `npm run build`
-  4. open Chrome and go to chrome://chrome/extensions/
-  5. enable "Developer mode"
-  6. click "Load unpacked extension"
-  7. select "build/json_viewer" directory
+  1. It depends on node (version in `package.json` engines).
+  2. `npm install --global yarn`
+  2. `yarn install`
+  3. `yarn run build`
+  4. Open Chrome and go to: chrome://extensions/
+  5. Enable: "Developer mode"
+  6. Click: "Load unpacked extension"
+  7. Select: "build/json_viewer" directory.
 
 ## Try it on
 

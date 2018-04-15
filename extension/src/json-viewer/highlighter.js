@@ -89,8 +89,27 @@ Highlighter.prototype = {
       if (text.match(URL_PATTERN) && self.clickableUrls()) {
         var decodedText = self.decodeText(text);
         elements.forEach(function(node) {
-          node.classList.add("cm-string-link");
-          node.setAttribute("data-url", decodedText);
+          if (self.wrapLinkWithAnchorTag()) {
+            var linkTag = document.createElement("a");
+            linkTag.href = decodedText;
+            linkTag.setAttribute('target', '_blank')
+            linkTag.classList.add("cm-string");
+
+            // reparent the child nodes to preserve the cursor when editing
+            node.childNodes.forEach(function(child) {
+              linkTag.appendChild(child);
+            });
+
+            // block CodeMirror's contextmenu handler
+            linkTag.addEventListener("contextmenu", function(e) {
+              if (e.bubbles) e.cancelBubble = true;
+            });
+
+            node.appendChild(linkTag);
+          } else {
+            node.classList.add("cm-string-link");
+            node.setAttribute("data-url", decodedText);
+          }
         });
       }
     });
@@ -162,6 +181,10 @@ Highlighter.prototype = {
         CodeMirror.commands.findNext(cm);
       }
 
+      extraKeyMap["Shift-Enter"] = function(cm) {
+        CodeMirror.commands.findPrev(cm);
+      }
+
       extraKeyMap["Ctrl-V"] = extraKeyMap["Cmd-V"] = function(cm) {};
     }
 
@@ -194,6 +217,10 @@ Highlighter.prototype = {
 
   clickableUrls: function() {
     return this.options.addons.clickableUrls;
+  },
+
+  wrapLinkWithAnchorTag: function() {
+    return this.options.addons.wrapLinkWithAnchorTag;
   },
 
   openLinksInNewWindow: function() {
